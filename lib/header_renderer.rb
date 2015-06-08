@@ -1,0 +1,43 @@
+class HeaderRenderer
+
+attr_accessor :header
+
+  def initialize(header)
+    @header = header
+    #assume header is already split into an array
+  end
+
+  def count_hashes
+    count = 0
+    @header.each do |char|
+      if char == '#'
+        count += 1
+      end
+    end
+    count
+    #count hashes
+  end
+
+  def strip_hashes
+    @header.delete_if {|char| char == '#'}
+    #remove hashes
+  end
+
+  def add_header_tag
+    if count_hashes == 1
+      self.strip_hashes.unshift('<h1>')
+      self.strip_hashes.push('</h1>')
+    elsif count_hashes == 2
+      self.strip_hashes.unshift('<h2>')
+      self.strip_hashes.push('</h2>')
+    elsif count_hashes == 3
+      self.strip_hashes.unshift('<h3>')
+      self.strip_hashes.push('</h3>')
+    elsif count_hashes == 4
+      self.strip_hashes.unshift('<h4>')
+      self.strip_hashes.push('</h4>')
+    end
+    #we want to replace a hash at the beginning of an array with <h1> and </h1> at either end of the array
+  end
+
+end

@@ -1,7 +1,7 @@
 require 'minitest/autorun'
 require 'minitest/pride'
 require 'pry'
-require_relative '../lib/paragraph_renderer'
+require './lib/paragraph_renderer'
 
 class ParagraphRendererTest < Minitest::Test
 

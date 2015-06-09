@@ -12,7 +12,7 @@ attr_accessor :header
   def to_markup
     @header.join("")
   end
-  
+
   def count_hashes
     count = 0
     @header.each do |char|

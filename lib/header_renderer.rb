@@ -4,6 +4,13 @@ attr_accessor :header
 
   def initialize(header)
     @header = header.split("")
+    # add_header_tags
+    # this breaks all of my tests even though
+    # it works, so what's the right level of testing
+  end
+
+  def to_markup
+    @header.join("")
   end
 
   def count_hashes

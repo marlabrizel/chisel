@@ -37,14 +37,14 @@ class HeaderRendererTest < Minitest::Test
     heading = ['#', 'H', 'e', 'a', 'd', 'i', 'n', 'g']
     header = HeaderRenderer.new(heading)
 
-    assert_equal ['<h1>', 'H', 'e', 'a', 'd', 'i', 'n', 'g', '</h1>'], header.add_header_tag
+    assert_equal ['<h1>', 'H', 'e', 'a', 'd', 'i', 'n', 'g', '</h1>'], header.add_header_tags
   end
 
   def test_it_adds_proper_HTML_tag_for_number_of_hashes
     heading = ['#', '#', 'H', 'e', 'a', 'd', 'i', 'n', 'g']
     header = HeaderRenderer.new(heading)
 
-    assert_equal ['<h2>', 'H', 'e', 'a', 'd', 'i', 'n', 'g', '</h2>'], header.add_header_tag
+    assert_equal ['<h2>', 'H', 'e', 'a', 'd', 'i', 'n', 'g', '</h2>'], header.add_header_tags
   end
 
 end

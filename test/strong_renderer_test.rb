@@ -56,4 +56,13 @@ class StrongRendererTest < Minitest::Test
     assert_equal expected, output
   end
 
+  def test_it_does_not_render_a_lonely_asterisk
+    input = "*This should be left alone"
+    text = StrongRenderer.new(input)
+    output = text.add_emphasis_tags
+    expected = "*This should be left alone"
+
+    assert_equal expected, output
+  end
+
 end

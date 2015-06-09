@@ -1,5 +1,6 @@
 require_relative 'header_renderer'
 require_relative 'paragraph_renderer'
+require 'pry'
 
 class TextProcessor
 
@@ -13,11 +14,12 @@ attr_accessor :text
   def apply_rendering
     @text.map do |chunk|
       if chunk[0] == "#"
-        @rendered << HeaderRenderer.new(chunk)
+        @rendered << HeaderRenderer.new(chunk).to_markup
       else
-        @rendered << ParagraphRenderer.new(chunk)
+        @rendered << ParagraphRenderer.new(chunk).to_markup
       end
     end
+    @rendered
     #does element[0] == #. yes, true
   end
 

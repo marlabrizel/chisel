@@ -23,7 +23,7 @@ attr_accessor :header
     #remove hashes
   end
 
-  def add_header_tag
+  def add_header_tags
     if count_hashes == 1
       self.strip_hashes.unshift('<h1>')
       self.strip_hashes.push('</h1>')
@@ -36,6 +36,9 @@ attr_accessor :header
     elsif count_hashes == 4
       self.strip_hashes.unshift('<h4>')
       self.strip_hashes.push('</h4>')
+    elsif count_hashes == 5
+      self.strip_hashes.unshift('<h5>')
+      self.strip_hashes.push('</h5>')
     end
     #we want to replace a hash at the beginning of an array with <h1> and </h1> at either end of the array
   end

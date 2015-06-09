@@ -4,7 +4,7 @@ class ParagraphRenderer
 attr_accessor :paragraph
 
   def initialize(paragraph)
-    @paragraph = paragraph
+    @paragraph = paragraph.split("")
   end
 
   def add_paragraph_tags

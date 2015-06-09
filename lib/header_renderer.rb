@@ -3,8 +3,7 @@ class HeaderRenderer
 attr_accessor :header
 
   def initialize(header)
-    @header = header
-    #assume header is already split into an array
+    @header = header.split("")
   end
 
   def count_hashes

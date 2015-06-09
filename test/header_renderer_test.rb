@@ -13,6 +13,7 @@ class HeaderRendererTest < Minitest::Test
   end
 
   def test_it_counts_more_than_one_hash
+    skip
     heading = "##Heading 2"
     header = HeaderRenderer.new(heading)
 
@@ -20,6 +21,7 @@ class HeaderRendererTest < Minitest::Test
   end
 
   def test_it_strips_hashes_from_a_header
+    skip
     heading = "##Heading"
     header = HeaderRenderer.new(heading)
 
@@ -27,6 +29,7 @@ class HeaderRendererTest < Minitest::Test
   end
 
   def test_it_adds_HTML_tags_to_a_header
+    skip
     heading = "#Heading"
     header = HeaderRenderer.new(heading)
 
@@ -34,6 +37,7 @@ class HeaderRendererTest < Minitest::Test
   end
 
   def test_it_adds_proper_HTML_tag_for_number_of_hashes
+    skip
     heading = "##Heading"
     header = HeaderRenderer.new(heading)
 

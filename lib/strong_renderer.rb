@@ -21,10 +21,12 @@ attr_accessor :input
 
   def add_emphasis_tags
     incoming = add_strong_tags
-    while incoming.include?("*")
-      incoming.sub!("*", "<em>").sub!("*", "</em>")
+    #checking incoming for presence of even numbers of asterisks
+    if incoming.count("*") > 1
+      while incoming.include?("*")
+        incoming.sub!("*", "<em>").sub!("*", "</em>")
+      end
     end
-
     incoming
   end
 

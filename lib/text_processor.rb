@@ -1,10 +1,13 @@
 require_relative 'header_renderer'
 require_relative 'paragraph_renderer'
+require_relative 'strong_renderer'
 require 'pry'
 
 class TextProcessor
 
-attr_accessor :text
+attr_reader :text,
+            :rendered
+
 
   def initialize(text)
     @text = text.split("\n\n")
@@ -17,10 +20,13 @@ attr_accessor :text
         @rendered << HeaderRenderer.new(chunk).to_markup
       else
         @rendered << ParagraphRenderer.new(chunk).to_markup
+        #lists will need to be
       end
     end
-    @rendered
-    #does element[0] == #. yes, true
+    result = @rendered.map do |chunk|
+      StrongRenderer.new.render(chunk)
+    end
+    @rendered = result.join("\n\n")
   end
 
 #iterate through entire text blob and split into series of arrays on "\n\n"

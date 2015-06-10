@@ -5,14 +5,28 @@ class ListRenderer
     while incoming.include?("* ")
       incoming.sub!("* ", "<li>").sub!("\n", "</li>")
     end
-    #at the end of the while loop, insert </ul> tag onto end of string
     incoming
   end
 
   def wrap_unordered(input)
-    # binding.pry
-    # incoming.gsub("", "<ul>")
     render_unordered(input).insert(0, "<ul>").insert(-1, "</ul>")
+  end
+
+  def render_ordered(input)
+    incoming = input
+    (0..1000).each do |number|
+      while incoming.include?("#{number}. ")
+        incoming.sub!("#{number}. ", "<li>").sub!("\n", "</li>")
+      end
+    end
+    incoming
+    #split string into elements by spaces
+    #split first element into chars
+    #if char[0] is a number 0-9 then substitute entire first element
+  end
+
+  def wrap_ordered(input)
+    render_ordered(input).insert(0, "<ol>").insert(-1, "</ol>")
   end
 
 end

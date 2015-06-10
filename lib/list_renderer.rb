@@ -20,9 +20,6 @@ class ListRenderer
       end
     end
     incoming
-    #split string into elements by spaces
-    #split first element into chars
-    #if char[0] is a number 0-9 then substitute entire first element
   end
 
   def wrap_ordered(input)

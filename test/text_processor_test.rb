@@ -9,7 +9,7 @@ class TextProcessorTest < Minitest::Test
     input = "#Here is my header"
     processor = TextProcessor.new(input)
     output = processor.apply_rendering
-    expected = ["<h1>Here is my header</h1>"]
+    expected = "<h1>Here is my header</h1>"
 
     assert_equal expected, output
   end
@@ -24,17 +24,12 @@ class TextProcessorTest < Minitest::Test
     input = "#Header\n\nParagraph blah blah blah"
     processor = TextProcessor.new(input)
     output = processor.apply_rendering
-    expected = ["<h1>Header</h1>", "<p>Paragraph blah blah blah</p>"]
+    expected = "<h1>Header</h1>\n\n<p>Paragraph blah blah blah</p>"
 
     assert_equal expected, output
   end
-  #
-  # def test_it_knows_a_paragraph_isnt_a_header
-  #   string = "Here is my paragraph."
-  #   divider = TextProcessor.new(string)
-  #
-  #   refute divider.is_header?
-  # end
 
+  def test_it_renders_headers_paragraphs_and_emphases
+  end
 
 end

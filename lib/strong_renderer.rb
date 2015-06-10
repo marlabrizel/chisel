@@ -1,14 +1,8 @@
 class StrongRenderer
-#
-# attr_accessor :input
-#
-#   def initialize(input)
-#     @input = input
-#   end
+
   def render(input)
     add_emphasis_tags(add_strong_tags(input))
   end
-
 
   private
 
@@ -22,7 +16,6 @@ class StrongRenderer
     end
     incoming
   end
-
 
   def add_strong_tags(input)
     replaced = input.gsub("**", "~")

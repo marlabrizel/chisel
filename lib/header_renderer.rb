@@ -46,6 +46,10 @@ attr_accessor :header
       self.strip_hashes.unshift('<h5>')
       self.strip_hashes.push('</h5>')
     end
+    #string concatenation
+    #count hashes, know how many to delete from front
+    #turn header tags into variables and incorporate count
+    # "<h#{count}>" + text + "</h#{count}>"
     #we want to replace a hash at the beginning of an array with <h1> and </h1> at either end of the array
   end
 

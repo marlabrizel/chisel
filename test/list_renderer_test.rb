@@ -6,7 +6,7 @@ class ListRendererTest < Minitest::Test
     input = "* sushi\n"
     text = ListRenderer.new(input)
     output = text.process_unordered
-    expected = "<li>sushi</li>"
+    expected = "\t<li>sushi</li>"
 
     assert_equal expected, output
   end
@@ -15,7 +15,7 @@ class ListRendererTest < Minitest::Test
     input = "* sushi\n* sake\n"
     text = ListRenderer.new(input)
     output = text.process_unordered
-    expected = "<li>sushi</li><li>sake</li>"
+    expected = "\t<li>sushi</li>\t<li>sake</li>"
 
     assert_equal expected, output
   end
@@ -24,7 +24,7 @@ class ListRendererTest < Minitest::Test
     input = "* sushi\n* sake\n* tempura\n"
     text = ListRenderer.new(input)
     output = text.process_unordered
-    expected = "<li>sushi</li><li>sake</li><li>tempura</li>"
+    expected = "\t<li>sushi</li>\t<li>sake</li>\t<li>tempura</li>"
 
     assert_equal expected, output
   end
@@ -33,7 +33,7 @@ class ListRendererTest < Minitest::Test
     input = "* sushi\n* sake\n* tempura\n"
     text = ListRenderer.new(input)
     output = text.wrap_unordered
-    expected = "<ul><li>sushi</li><li>sake</li><li>tempura</li></ul>"
+    expected = "<ul>\n\t<li>sushi</li>\n\t<li>sake</li>\n\t<li>tempura</li>\n</ul>"
 
     assert_equal expected, output
   end
@@ -42,7 +42,7 @@ class ListRendererTest < Minitest::Test
     input = "1. sushi\n"
     text = ListRenderer.new(input)
     output = text.process_ordered
-    expected = "<li>sushi</li>"
+    expected = "\t<li>sushi</li>"
 
     assert_equal expected, output
     end
@@ -51,7 +51,7 @@ class ListRendererTest < Minitest::Test
     input = "1. sushi\n2. sake\n"
     text = ListRenderer.new(input)
     output = text.process_ordered
-    expected = "<li>sushi</li><li>sake</li>"
+    expected = "\t<li>sushi</li>\t<li>sake</li>"
 
     assert_equal expected, output
   end
@@ -60,7 +60,7 @@ class ListRendererTest < Minitest::Test
     input = "1. sushi\n1. sake\n"
     text = ListRenderer.new(input)
     output = text.process_ordered
-    expected = "<li>sushi</li><li>sake</li>"
+    expected = "\t<li>sushi</li>\t<li>sake</li>"
 
     assert_equal expected, output
   end
@@ -69,7 +69,7 @@ class ListRendererTest < Minitest::Test
     input = "1. sushi\n2. sake\n3. tempura\n"
     text = ListRenderer.new(input)
     output = text.wrap_ordered
-    expected = "<ol><li>sushi</li><li>sake</li><li>tempura</li></ol>"
+    expected = "<ol>\t<li>sushi</li>\t<li>sake</li>\t<li>tempura</li></ol>"
 
     assert_equal expected, output
   end

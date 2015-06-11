@@ -11,10 +11,17 @@ class TextProcessor
 attr_reader :text,
             :rendered
 
-
   def initialize(text)
     @text = text.split("\n\n")
     @rendered = []
+  end
+
+  def count_input_lines
+    lines = @text.map do |chunk|
+      chunk.split("\n")
+    end
+    binding.pry
+    lines.flatten.size
   end
 
   def apply_rendering
@@ -46,8 +53,3 @@ attr_reader :text,
 #transformed arrays then need to be sent back into a new array of arrays to be processed
 #by the final renderer
 end
-
-#take line-break-split array and with an enumerable,
-#go through each element and determine whether it's a
-# header or paragraph. instantiate correct class based
-#on answer

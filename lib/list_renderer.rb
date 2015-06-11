@@ -9,10 +9,12 @@ attr_reader :input
   end
 
   def process_unordered
-    while @input.include?("* ")
-      @input.sub!("* ", "<li>").sub!("\n", "</li>")
+    lines = @input.split("\n")
+    lines.map do |line|
+      line.sub!("* ", "<li>")
+      line << "</li>"
     end
-    @input
+    formatted = lines.join("")
   end
 
   def wrap_unordered
@@ -20,12 +22,16 @@ attr_reader :input
   end
 
   def process_ordered
+    lines = @input.split("\n")
     NUMBER_PREFIXES.each do |number|
-      while @input.include?("#{number}")
-        @input.sub!("#{number}", "<li>").sub!("\n", "</li>")
+      lines.map do |line|
+        if line.include?("#{number}")
+          line << "</li>"
+          line.sub!("#{number}", "<li>")
+        end
       end
     end
-    @input
+    formatted = lines.join("")
   end
 
   def wrap_ordered

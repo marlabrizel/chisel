@@ -17,6 +17,4 @@ class ParagraphRendererTest < Minitest::Test
     assert_equal "<p>Howdy there, pardner!</p>", paragraph.to_markup
   end
 
-  #add edge case for newline
-
 end

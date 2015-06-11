@@ -74,5 +74,13 @@ class ListRendererTest < Minitest::Test
     assert_equal expected, output
   end
 
+  def test_it_knows_to_add_a_close_tag_for_the_last_list_item
+    input = "1. sushi\n1. sake"
+    text = ListRenderer.new(input)
+    output = text.process_ordered
+    expected = "<li>sushi</li><li>sake</li>"
+
+    assert_equal expected, output
+  end
 
 end

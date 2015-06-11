@@ -10,7 +10,7 @@ attr_reader :input
 
   def process_unordered
     while @input.include?("* ")
-      @input.sub!("* ", "\t<li>").sub!("\n", "</li>")
+      @input.sub!("* ", "<li>").sub!("\n", "</li>")
     end
     @input
   end
@@ -22,7 +22,7 @@ attr_reader :input
   def process_ordered
     NUMBER_PREFIXES.each do |number|
       while @input.include?("#{number}")
-        @input.sub!("#{number}", "\t<li>").sub!("\n", "</li>")
+        @input.sub!("#{number}", "<li>").sub!("\n", "</li>")
       end
     end
     @input

@@ -7,4 +7,4 @@ processor.apply_rendering
 markup = processor.rendered
 File.open(ARGV[1], "w") { |file| file.write(markup) }
 
-puts "Converted #{ARGV[0]} (#{processor.count_input_lines} lines) to #{ARGV[1]}"
+puts "Converted #{ARGV[0]} (#{processor.count_lines} lines) to #{ARGV[1]} (#{processor.count_lines} lines)"

@@ -55,4 +55,14 @@ class TextProcessorTest < Minitest::Test
 
     assert_equal expected, output
   end
+
+  def test_it_renders_links
+    input = "Chipotle [yum](http://www.chipotle.com/) yay"
+    processor = TextProcessor.new(input)
+    output = processor.apply_rendering
+    expected = "<p>Chipotle <a href='http://www.chipotle.com/'>yum</a> yay</p>"
+
+    assert_equal expected, output
+  end
+
 end

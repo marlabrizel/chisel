@@ -1,7 +1,4 @@
-require 'minitest/autorun'
-require 'minitest/pride'
-require 'pry'
-require './lib/header_renderer'
+require './test/test_helper'
 
 class HeaderRendererTest < Minitest::Test
 

@@ -1,7 +1,4 @@
-require 'minitest/autorun'
-require 'minitest/pride'
-require 'pry'
-require './lib/text_processor'
+require './test/test_helper'
 
 class TextProcessorTest < Minitest::Test
 

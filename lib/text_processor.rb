@@ -16,7 +16,7 @@ attr_reader :text,
     @rendered = []
   end
 
-  def count_input_lines
+  def count_lines
     lines = @text.map do |chunk|
       chunk.split("\n")
     end

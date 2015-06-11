@@ -2,7 +2,6 @@ class LinkRenderer
 
   def initialize(input)
     @input = input.split("](")
-    #""[url", "http://hi.com/)""
   end
 
   def process_link
@@ -15,9 +14,6 @@ class LinkRenderer
     else
       formatted = "<a href='#{url}'>#{tag}</a>"
     end
-    # formatted
   end
-
-  #<p><a href="http://example.net/">This link</a> has no
-#title attribute.</p>
+  
 end

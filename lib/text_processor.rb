@@ -43,12 +43,4 @@ attr_reader :text,
     @rendered = result.join("\n\n")
   end
 
-#iterate through entire text blob and split into series of arrays on "\n\n"
-#for each array in the series, if element[0] == '#', send to header_renderer
-#else, send to paragraph_renderer
-#send to next machine components in array form so that
-#text is ready to parse further
-#arrange arrays into header and paragraph arrays?
-#transformed arrays then need to be sent back into a new array of arrays to be processed
-#by the final renderer
 end

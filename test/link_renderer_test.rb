@@ -11,11 +11,11 @@ class LinkRendererTest < Minitest::Test
     assert_equal expected, output
   end
 
-  def test_it_finds_a_link_in_text
-    input = "Chipotle [yum](http://www.chipotle.com/)"
+  def test_it_renders_a_link_with_a_title
+    input = "[link](http://hi.com/ 'Title')"
     text = LinkRenderer.new(input)
     output = text.process_link
-    expected = "Chipotle <a href='http://www.chipotle.com/'>yum</a>"
+    expected = "<a href='http://hi.com/' title='Title'>link</a>"
 
     assert_equal expected, output
   end

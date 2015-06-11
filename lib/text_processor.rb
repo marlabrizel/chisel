@@ -2,6 +2,8 @@ require_relative 'header_renderer'
 require_relative 'paragraph_renderer'
 require_relative 'strong_renderer'
 require_relative 'list_renderer'
+require_relative 'link_renderer'
+require_relative 'link_detector'
 require 'pry'
 
 class TextProcessor
@@ -16,7 +18,6 @@ attr_reader :text,
   end
 
   def apply_rendering
-    #need to refactor this to be OO
     @text.map do |chunk|
       if chunk[0] == "#"
         @rendered << HeaderRenderer.new(chunk).to_markup
@@ -24,6 +25,8 @@ attr_reader :text,
         @rendered << ListRenderer.new(chunk).wrap_unordered
       elsif %w(0 1 2 3 4 5 6 7 8 9).include?(chunk[0])
         @rendered << ListRenderer.new(chunk).wrap_ordered
+      elsif chunk.include?("](")
+        @rendered << ParagraphRenderer.new(LinkDetector.new(chunk).detect_link).to_markup
       else
         @rendered << ParagraphRenderer.new(chunk).to_markup
       end

@@ -1,6 +1,5 @@
 require_relative 'text_processor'
 
-# Converted my_input.markdown (6 lines) to my_output.html (8 lines)
 markdown = File.read(ARGV[0])
 processor = TextProcessor.new(markdown)
 processor.apply_rendering

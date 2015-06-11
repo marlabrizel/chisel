@@ -12,7 +12,12 @@ class TextProcessorTest < Minitest::Test
   end
 
   def test_it_renders_a_md_paragraph_in_HTML
-    skip
+    input = "Here is my paragraph"
+    processor = TextProcessor.new(input)
+    output = processor.apply_rendering
+    expected = "<p>Here is my paragraph</p>"
+
+    assert_equal expected, output
   end
 
   def test_it_renders_paragraphs_and_headers_correctly
@@ -50,5 +55,4 @@ class TextProcessorTest < Minitest::Test
 
     assert_equal expected, output
   end
-#is there an edge case for \n\n at end of list
 end

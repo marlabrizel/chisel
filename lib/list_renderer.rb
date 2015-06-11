@@ -14,11 +14,11 @@ attr_reader :input
       line.sub!("* ", "<li>")
       line << "</li>"
     end
-    formatted = lines.join("")
+    formatted = lines.join("\n")
   end
 
   def wrap_unordered
-    process_unordered.insert(0, "<ul>").insert(-1, "</ul>")
+    process_unordered.insert(0, "<ul>\n").insert(-1, "\n</ul>\n")
   end
 
   def process_ordered
@@ -31,11 +31,11 @@ attr_reader :input
         end
       end
     end
-    formatted = lines.join("")
+    formatted = lines.join("\n")
   end
 
   def wrap_ordered
-    process_ordered.insert(0, "<ol>").insert(-1, "</ol>")
+    process_ordered.insert(0, "<ol>\n").insert(-1, "\n</ol>\n")
   end
 
 end

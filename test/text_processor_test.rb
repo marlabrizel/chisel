@@ -37,7 +37,7 @@ class TextProcessorTest < Minitest::Test
     input = "#Header\n\nParagraph\n\n* list\n* list\n"
     processor = TextProcessor.new(input)
     output = processor.apply_rendering
-    expected = "<h1>Header</h1>\n\n<p>Paragraph</p>\n\n<ul><li>list</li><li>list</li></ul>"
+    expected = "<h1>Header</h1>\n\n<p>Paragraph</p>\n\n<ul>\n<li>list</li>\n<li>list</li>\n</ul>\n"
 
     assert_equal expected, output
   end
@@ -46,7 +46,7 @@ class TextProcessorTest < Minitest::Test
     input = "#Header\n\nParagraph\n\n1. list\n2. list\n"
     processor = TextProcessor.new(input)
     output = processor.apply_rendering
-    expected = "<h1>Header</h1>\n\n<p>Paragraph</p>\n\n<ol><li>list</li><li>list</li></ol>"
+    expected = "<h1>Header</h1>\n\n<p>Paragraph</p>\n\n<ol>\n<li>list</li>\n<li>list</li>\n</ol>\n"
 
     assert_equal expected, output
   end

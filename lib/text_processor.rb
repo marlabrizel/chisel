@@ -20,7 +20,6 @@ attr_reader :text,
     lines = @text.map do |chunk|
       chunk.split("\n")
     end
-    binding.pry
     lines.flatten.size
   end
 
